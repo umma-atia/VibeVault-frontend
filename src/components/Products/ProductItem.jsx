@@ -8,7 +8,7 @@ const ProductItem = ({ product }) => {
         <figure className="px-10 pt-10">
           <img
             src={
-              product.images?.length > 0 ? product.images[0].image : defaultImage
+              product.image?.length > 0 ? product.image : defaultImage
             }
             alt={product.name}
             className="rounded-xl"

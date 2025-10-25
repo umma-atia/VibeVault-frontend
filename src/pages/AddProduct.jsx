@@ -13,7 +13,7 @@ const AddProduct = () => {
   const [categories, setCategories] = useState([]);
   const [productId, setProductId] = useState(null);
   const [previewImages, setPreviewImages] = useState([]);
-  const [images, setImages] = useState([]);
+  const [image, setImage] = useState([]);
   const [loading, setLoading] = useState(false);
 
   // Fetch Categories
@@ -38,21 +38,21 @@ const AddProduct = () => {
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     console.log(files);
-    setImages(files);
+    setImage(files);
     setPreviewImages(files.map((file) => URL.createObjectURL(file)));
   };
 
   // Handle Image Upload
   const handleUpload = async () => {
-    if (!images.length) return alert("Please select images.");
+    if (!image.length) return alert("Please select images.");
     // [file, file]
     setLoading(true);
     try {
-      for (const image of images) {
+      for (const img of image) {
         const formData = new FormData();
-        formData.append("image", image);
+        formData.append("image", img);
         console.log(formData);
-        await authApiClient.post(`/products/${productId}/images/`, formData);
+        await authApiClient.post(`/products/${productId}/`, formData);
         setLoading(false);
       }
       alert("Images uploaded successfully");

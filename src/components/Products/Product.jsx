@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ProductItem from "./ProductItem";
 import { Navigation } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import ErroAlert from "../ErroAlert";

@@ -5,7 +5,7 @@ const CarouselSlide = ({ title, subtitle }) => {
     <section
       className="w-full h-[650px] bg-cover bg-center flex justify-center items-center px-4 md:px-8"
       style={{ backgroundImage: `url(${bgImg})` }}
-    >
+      >
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
         {/* Left Content  */}
         <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
