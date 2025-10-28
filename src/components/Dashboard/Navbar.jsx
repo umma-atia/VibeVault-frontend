@@ -41,12 +41,7 @@ const Navbar = ({ sidebarOpen }) => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                <li>
-                  <Link href="/profile" className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </Link>
-                </li>
+                <li><Link to="/dashboard/profile">Profile</Link></li>
                 <li>
                   <Link to="/settings">Settings</Link>
                 </li>

@@ -3,8 +3,8 @@ import { Phone, MapPin, Facebook, Twitter, Youtube, Linkedin } from "lucide-reac
 export default function ContactSection() {
   const contactData = {
     phones: ["+1650-243-00023", "+1650-243-00021"],
-    emails: ["info@vibevault.com", "info@yourcompany.com"],
-    address: "Dhanmandi, Dhaka",
+    emails: ["info@vibevault.com", "info@company.com"],
+    address: "Dhanmandi 7/A, Dhaka",
     socials: [
       { icon: Facebook, label: "Facebook", href: "#" },
       { icon: Twitter, label: "Twitter", href: "#" },
@@ -18,12 +18,6 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto">
         {/* Main Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {/* Left Section - Thank You */}
-          <div className="flex flex-col justify-start">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Thank You!</h1>
-            <p className="text-lg text-muted-foreground">We will get back to you as soon as possible.</p>
-          </div>
-
           {/* Right Section - Get In Touch */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 md:mb-12">Get In Touch</h2>
@@ -49,7 +43,7 @@ export default function ContactSection() {
 
               {/* Emails */}
               <div className="border-b md:border-b md:pb-8 pb-8">
-                <h3 className="text-xl font-bold text-foreground mb-4">Emails</h3>
+                <h3 className="font-bold text-foreground mb-4">Emails</h3>
                 <div className="space-y-3">
                   {contactData.emails.map((email, index) => (
                     <a
@@ -92,6 +86,11 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
+          </div>
+          {/* Left Section - Thank You */}
+          <div className="flex flex-col place-content-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Thank You!</h1>
+            <p className="text-lg text-muted-foreground">We will get back to you as soon as possible.</p>
           </div>
         </div>
       </div>

@@ -16,6 +16,7 @@ import PaymentSuccess from '../pages/PaymentSuccess';
 import AddProduct from '../pages/AddProduct';
 import MainLayout from '../layouts/MainLayout';
 import ContactPage from '../pages/ContactPage';
+import Blog from '../pages/Blog';
 
 const AppRoutes = () => {
     return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
             <Route element={<MainLayout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="about" element={<About />} />
+                <Route path="blog" element={<Blog />} />
                 <Route path="contact" element={<ContactPage />} />
                 <Route path="shop" element={<Shop />} />
                 <Route path="login" element={<Login />} />
@@ -40,7 +42,7 @@ const AppRoutes = () => {
                     <DashboardLayout />
                 </PrivateRoute>
                 }
-              >
+                >
                 <Route index element={<Dashboard />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="cart" element={<Cart />} />
