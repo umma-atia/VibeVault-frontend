@@ -2,9 +2,9 @@ import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import ProductCard from "./product-card"
 import baggyShirtImage from "../../assets/images/baggy-shirt-fashion.jpg"
-import cottonOffWhiteImage from "../../assets/images/cotton-off-white-shirt.jpg"
+import cottonOffWhiteImage from "../../assets/images/cotton.jpg"
 import cropSweatImage from "../../assets/images/crop-sweater-fashion.jpg"
-import vintageDenimImage from "../../assets/images/vintage-denim-jeans.jpg"
+import vintageDenimImage from "../../assets/images/coaty.jpg"
 import linenBlazerImage from "../../assets/images/linen-blazer.jpg"
 
 const products = [

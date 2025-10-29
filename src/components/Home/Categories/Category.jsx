@@ -12,7 +12,7 @@ const Category = () => {
     <section className="py-12 px-4 max-w-7xl mx-auto">
       {/* Category Heading  */}
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold">Browse Categories</h2>
+        <h2 className="text-3xl font-bold">Categories</h2>
         <a
           href="#"
           className="btn btn-secondary px-6 py-6 rounded-full text-lg"
@@ -22,7 +22,7 @@ const Category = () => {
       </div>
 
       {/* Category Grid  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category, index) => (
           <CategoryItems key={category.id} index={index} category={category} />
         ))}

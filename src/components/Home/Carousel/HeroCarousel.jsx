@@ -1,3 +1,6 @@
+import image1 from "../../../assets/images/banner1.jpg"
+
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -16,10 +19,12 @@ const HeroCarousel = () => {
     {
       title: "Casual Collections",
       subtitle: "Discount available. Grab it now!",
+      image: image1
     },
     {
       title: "Exclusive Fashion Collections",
       subtitle: "A specialists label creating luxury essentials!",
+      image: image1
     }
   ];
 
