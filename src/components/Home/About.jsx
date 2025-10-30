@@ -5,7 +5,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="px-4 py-12 md:py-20 lg:py-28">
+      <section className="px-4 py-12 md:py-20 lg:py-28 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-center">
             {/* Left Side - Image */}
@@ -35,7 +35,7 @@ export default function AboutPage() {
                 At VibeVault, we’re more than just a clothing store—we're a lifestyle destination that celebrates individuality and self-expression. Thank you for being a part of our journey!
               </p>
 
-              <button className="w-full md:w-auto bg-secondary text-white px-8 py-3 font-semibold text-lg hover:opacity-90 transition-opacity rounded-md">
+              <button className="w-full md:w-auto bg-indigo-500 text-white px-8 py-3 font-semibold text-lg hover:opacity-90 transition-opacity rounded-md">
                 SHOP OUR STORE →
               </button>
             </div>
@@ -43,7 +43,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-4 py-12 md:py-16 bg-background border-y border-border">
+      <section className="px-4 py-12 md:py-16 bg-background border-y border-border mt-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
             {/* Benefit 1 - Free Shipping */}
@@ -86,13 +86,13 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="px-4 py-16 md:py-24 bg-gray-100 mt-1">
+      <section className="px-4 py-16 md:py-24 bg-gray-200 mt-24">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-balance">Our Core Values</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Value Card 1 */}
-            <div className="bg-card p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="bg-card p-8 rounded-lg shadow-xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3">Quality</h3>
               <p className="text-muted-foreground leading-relaxed">
                 We believe in delivering the highest quality products that stand the test of time and exceed customer
@@ -101,7 +101,7 @@ export default function AboutPage() {
             </div>
 
             {/* Value Card 2 */}
-            <div className="bg-card p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="bg-card p-8 rounded-lg shadow-xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3">Innovation</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Constantly pushing boundaries and exploring new ideas to bring fresh perspectives to our industry.
@@ -109,7 +109,7 @@ export default function AboutPage() {
             </div>
 
             {/* Value Card 3 */}
-            <div className="bg-card p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="bg-card p-8 rounded-lg shadow-xl hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-bold mb-3">Community</h3>
               <p className="text-muted-foreground leading-relaxed">
                 Building meaningful connections with our customers and creating a supportive community around our brand.

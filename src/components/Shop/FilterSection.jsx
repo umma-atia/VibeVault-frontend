@@ -4,11 +4,19 @@ const FilterSection = ({
   categories,
   selectedCategory,
   handleCategoryChange,
+  selectedSize,
+  handleSizeChange,
+  selectedColor,
+  handleColorChange,
   searchQuery,
   handleSearchQuery,
   sortOrder,
-  handleSorting,
+  handleSorting, 
 }) => {
+  
+  const colors = ["Red", "Blue", "Green", "Black", "White"]; // কালার অপশন গুলো
+  const sizes = ["S", "M", "L", "XL", "XXL"];
+
   return (
     <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {/* Price Range */}
@@ -75,8 +83,46 @@ const FilterSection = ({
             >
             <option value="">All Categories</option>
             {categories.map((category) => (
-                <option key={category.id} value={String(category.id)}>
+                <option key={category.id} value={String(category.name)}>
                 {category.name}
+                </option>
+            ))}
+        </select>
+      </div>
+
+      {/* Color Filter */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Color
+        </label>
+        <select
+            className="w-full p-2 border rounded-md"
+            value={selectedColor}
+            onChange={(e) => handleColorChange(e.target.value)}
+            >
+            <option value="">All Colors</option>
+            {colors.map((color) => (
+                <option key={color} value={color}>
+                {color}
+                </option>
+            ))}
+        </select>
+      </div>
+
+      {/* Size Filter */}
+      <div className="bg-white p-4 rounded-lg shadow">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Size
+        </label>
+        <select
+            className="w-full p-2 border rounded-md"
+            value={selectedSize}
+            onChange={(e) => handleSizeChange(e.target.value)}
+            >
+            <option value="">All Sizes</option>
+            {sizes.map((size) => (
+                <option key={size} value={size}>
+                {size}
                 </option>
             ))}
         </select>
@@ -105,7 +151,7 @@ const FilterSection = ({
           className="w-full p-2 border rounded-md"
           value={sortOrder}
           onChange={(e) => handleSorting(e.target.value)}
-        >
+          >
           <option value="">Default</option>
           <option value="price">Price: Low to High</option>
           <option value="-price">Price: High to Low</option>

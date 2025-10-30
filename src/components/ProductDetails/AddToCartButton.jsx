@@ -62,7 +62,7 @@ const AddToCartButton = ({ product }) => {
         className="btn btn-primary w-full"
         onClick={addToCart}
         disabled={isAdding || isAdded || product.stock === 0}
-      >
+        >
         {isAdding ? (
           <span className="flex items-center">
             <span className="loading loading-spinner loading-sm mr-2"></span>

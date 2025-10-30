@@ -5,6 +5,8 @@ const useFetchProduct = (
   currentPage,
   priceRange,
   selectedCategory,
+  selectedSize,
+  selectedColor,
   searchQuery,
   sortOrder
 ) => {
@@ -15,13 +17,7 @@ const useFetchProduct = (
   useEffect(() => {
   const fetchProducts = async () => {
     setLoading(true);
-    let url = `/products/?price__gt=${priceRange[0]}&price__lt=${priceRange[1]}&page=${currentPage}&search=${searchQuery}&ordering=${sortOrder}`;
-
-    if (selectedCategory) {
-      url += `&category_id=${selectedCategory}`;
-    }
-
-    console.log("Fetching URL:", url); // Debug
+    const url = `/products/?price__gt=${priceRange[0]}&price__lt=${priceRange[1]}&page=${currentPage}&category__name=${selectedCategory}&size=${selectedSize}&color=${selectedColor}&search=${searchQuery}&ordering=${sortOrder}`;
 
     try {
       const response = await apiClient.get(url);
@@ -36,7 +32,7 @@ const useFetchProduct = (
     }
   };
   fetchProducts();
-}, [currentPage, priceRange, selectedCategory, searchQuery, sortOrder]);
+}, [currentPage, priceRange, selectedCategory, selectedSize, selectedColor, searchQuery, sortOrder]);
 
   return { products, loading, totalPages };
 };

@@ -8,10 +8,10 @@ import { Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
 import defaultImage from "../../assets/default_product.jpg";
 
-const ProductImageGallery = ({ images = [], ProductName }) => {
+const ProductImageGallery = ({ image = [], ProductName }) => {
   const [thumbsSwiper] = useState(null);
 
-  const displayImages = images.length > 0 ? images : [{ image: defaultImage }];
+  const displayImages = image.length > 0 ? image : [{ image: defaultImage }];
   return (
     <div className="rounded-lg border overflow-hidden">
       <Swiper

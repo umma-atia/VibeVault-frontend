@@ -10,6 +10,8 @@ const ShopPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedSize, setSelectedSize] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("");
 
@@ -17,8 +19,10 @@ const ShopPage = () => {
     currentPage,
     priceRange,
     selectedCategory,
+    selectedSize, 
+    selectedColor,
     searchQuery,
-    sortOrder
+    sortOrder, 
   );
 
   const categories = useFetchCategories();
@@ -41,6 +45,10 @@ const ShopPage = () => {
         categories={categories}
         selectedCategory={selectedCategory}
         handleCategoryChange={setSelectedCategory}
+        productSize={selectedSize}
+        handleSizeChange={setSelectedSize}
+        productColor={selectedColor}
+        handleColorChange={setSelectedColor}
         searchQuery={searchQuery}
         handleSearchQuery={setSearchQuery}
         sortOrder={sortOrder}

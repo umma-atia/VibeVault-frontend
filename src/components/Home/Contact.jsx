@@ -1,99 +1,152 @@
-import { Phone, MapPin, Facebook, Twitter, Youtube, Linkedin } from "lucide-react"
+import { useState } from "react"
+import { Mail, Phone, MapPin } from "lucide-react"
+import bgimg from "../../assets/images/phn.jpg"
 
 export default function ContactSection() {
-  const contactData = {
-    phones: ["+1650-243-00023", "+1650-243-00021"],
-    emails: ["info@vibevault.com", "info@company.com"],
-    address: "Dhanmandi 7/A, Dhaka",
-    socials: [
-      { icon: Facebook, label: "Facebook", href: "#" },
-      { icon: Twitter, label: "Twitter", href: "#" },
-      { icon: Youtube, label: "YouTube", href: "#" },
-      { icon: Linkedin, label: "LinkedIn", href: "#" },
-    ],
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("Form submitted:", formData)
+    // Handle form submission here
+    setFormData({ name: "", email: "", subject: "", message: "" })
   }
 
   return (
-    <section className="w-full bg-white py-12 md:py-20 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {/* Right Section - Get In Touch */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 md:mb-12">Get In Touch</h2>
+    <div className="min-h-screen py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-fixed"
+      style={{
+        backgroundImage: `url(${bgimg})`
+      }}
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
+            <span className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+              <span className="w-8 sm:w-12 md:w-16 h-px bg-foreground"></span>
+              <span className="whitespace-nowrap">Get In Touch</span>
+              <span className="w-8 sm:w-12 md:w-16 h-px bg-foreground"></span>
+            </span>
+          </h1>
+        </div>
 
-            {/* Contact Info Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              {/* Phones */}
-              <div className="border-b md:border-b md:border-r md:pb-8 md:pr-8 pb-8">
-                <h3 className="text-xl font-bold text-foreground mb-4">Phones</h3>
-                <div className="space-y-3">
-                  {contactData.phones.map((phone, index) => (
-                    <a
-                      key={index}
-                      href={`tel:${phone}`}
-                      className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                      >
-                      <Phone size={18} className="text-muted-foreground flex-shrink-0" />
-                      <span>{phone}</span>
-                    </a>
-                  ))}
+        {/* Main Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+          {/* Form Section */}
+          <div className="order-2 lg:order-1">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 md:space-y-6">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-sm bg-white text-foreground placeholder-muted-foreground text-sm sm:text-base"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-sm bg-white text-foreground placeholder-muted-foreground text-sm sm:text-base"
+              />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-sm bg-white text-foreground placeholder-muted-foreground text-sm sm:text-base"
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                value={formData.message}
+                onChange={handleChange}
+                rows="5"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-sm bg-white text-foreground placeholder-muted-foreground text-sm sm:text-base"
+              ></textarea>
+              <button
+                type="submit"
+                className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 rounded-sm bg-emerald-400 text-foreground font-medium transition-colors text-sm sm:text-base"
+                >
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Info Section */}
+          <div className="order-1 lg:order-2">
+
+            {/* Store 1 */}
+            <div className="mb-8 md:mb-10">
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Store 1</h3>
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm sm:text-base text-muted-foreground">123 Street, New York, USA</p>
                 </div>
-              </div>
-
-              {/* Emails */}
-              <div className="border-b md:border-b md:pb-8 pb-8">
-                <h3 className="font-bold text-foreground mb-4">Emails</h3>
-                <div className="space-y-3">
-                  {contactData.emails.map((email, index) => (
-                    <a
-                      key={index}
-                      href={`mailto:${email}`}
-                      className="text-blue-600 hover:text-blue-800 transition-colors"
-                      >
-                      {email}
-                    </a>
-                  ))}
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+                  <a href="mailto:info@example.com" className="text-sm sm:text-base text-blue-500 hover:underline">
+                    info@vibevault.com
+                  </a>
                 </div>
-              </div>
-
-              {/* Address */}
-              <div className="border-b md:border-b-0 md:border-r md:pb-0 md:pr-8 pb-8">
-                <h3 className="text-xl font-bold text-foreground mb-4">Address</h3>
-                <div className="flex items-start gap-2">
-                  <MapPin size={18} className="text-muted-foreground flex-shrink-0 mt-1" />
-                  <p className="text-muted-foreground">{contactData.address}</p>
-                </div>
-              </div>
-
-              {/* Social Links */}
-              <div>
-                <h3 className="text-xl font-bold text-foreground mb-4">Social Links</h3>
-                <div className="flex gap-4">
-                  {contactData.socials.map((social, index) => {
-                    const Icon = social.icon
-                    return (
-                      <a
-                        key={index}
-                        href={social.href}
-                        aria-label={social.label}
-                        className="text-foreground hover:text-blue-600 transition-colors"
-                        >
-                        <Icon size={20} />
-                      </a>
-                    )
-                  })}
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+                  <a href="tel:+012345678900" className="text-sm sm:text-base text-muted-foreground">
+                    +012 345 67890
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-          {/* Left Section - Thank You */}
-          <div className="flex flex-col place-content-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Thank You!</h1>
-            <p className="text-lg text-muted-foreground">We will get back to you as soon as possible.</p>
+
+            {/* Store 2 */}
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 sm:mb-4">Store 2</h3>
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm sm:text-base text-muted-foreground">123 Street, New York, USA</p>
+                </div>
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+                  <a href="mailto:info@example.com" className="text-sm sm:text-base text-blue-500 hover:underline">
+                    info@vibevault.com
+                  </a>
+                </div>
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-rose-400 flex-shrink-0 mt-0.5" />
+                  <a href="tel:+012345678900" className="text-sm sm:text-base text-muted-foreground">
+                    +012 345 67890
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-6 md:mb-8 mt-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-1 sm:mb-2">Thank You!</h2>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                We will get back to you as soon as possible.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
