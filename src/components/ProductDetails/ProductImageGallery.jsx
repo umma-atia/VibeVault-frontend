@@ -6,12 +6,10 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Thumbs } from "swiper/modules";
 import { useState } from "react";
-import defaultImage from "../../assets/default_product.jpg";
 
-const ProductImageGallery = ({ image = [], ProductName }) => {
+const ProductImageGallery = ({ images = [], ProductName }) => {
   const [thumbsSwiper] = useState(null);
 
-  const displayImages = image.length > 0 ? image : [{ image: defaultImage }];
   return (
     <div className="rounded-lg border overflow-hidden">
       <Swiper
@@ -22,7 +20,7 @@ const ProductImageGallery = ({ image = [], ProductName }) => {
         }}
         className="product-main-slider"
       >
-        {displayImages.map((imageObj, index) => (
+        {images.map((imageObj, index) => (
           <SwiperSlide key={index}>
             <div className="aspect-square bg-base-100">
               <img

@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Suspense, useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import ReviewSection from "../components/Reviews/ReviewSection";
+import defaultImage from "../assets/default_product.jpg";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState(null);
@@ -14,14 +15,25 @@ const ProductDetail = () => {
   useEffect(() => {
     setLoading(true);
     apiClient.get(`/products/${productId}/`).then((res) => {
-      setProduct(res.data);
-      console.log(res.data);
-      setLoading(false);
-    });
+      const productData = res.data;
+      // Check if product.image exists and is a string
+    if (productData.image && typeof productData.image === 'string') {
+      // Convert string to array with object { image: ... }
+      productData.image = [{ image: productData.image }];
+    } else if (!productData.image || productData.image.length === 0) {
+      // If no image, set default image array
+      productData.image = [{ image: defaultImage }];
+    }
+    setProduct(productData);
+    setLoading(false);
+  });
   }, [productId]);
 
   if (loading) return <div>Loading...</div>;
   if (!product) return <div>Product Not Found...</div>;
+
+  // Debugging logs
+console.log('API theke asha product:', product);
 
   return (
     <div className="w-3/4 mx-auto px-4 py-8">
@@ -40,9 +52,9 @@ const ProductDetail = () => {
           fallback={
             <div className="aspect-square bg-base-300 animate-pulse rounded-lg"></div>
           }
-        >
+          >
           <ProductImageGallery
-            images={product?.images}
+            images={product.image}
             productName={product.name}
           />
         </Suspense>
