@@ -6,15 +6,16 @@ const ProductList = ({ products, loading }) => {
       <div className="flex justify-center items-center py-10 min-h-screen">
         <span className="loading loading-spinner loading-xl text-secondary"></span>
       </div>
-    );
+    )
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 py-6">
+    <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {products.map((product) => (
         <ProductItem product={product} key={product.id} />
       ))}
     </div>
-  );
-};
+  )
+}
 
 export default ProductList;
+

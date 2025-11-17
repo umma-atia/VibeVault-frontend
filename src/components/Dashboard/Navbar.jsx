@@ -50,7 +50,7 @@ const Navbar = ({ sidebarOpen }) => {
                 </li>
               </ul>          
             </div>
-          ) : (
+           ) : (
             <div className="flex gap-3">
                   <Link to="/login" className="btn btn-secondary">
                   Login

@@ -36,6 +36,7 @@ const useCart = () => {
           product_id,
           quantity,
         });
+        console.log(response.data);
         return response.data;
       } catch (error) {
         console.log("Error adding Items", error);
@@ -93,3 +94,4 @@ const useCart = () => {
 };
 
 export default useCart;
+

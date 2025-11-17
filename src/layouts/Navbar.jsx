@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import useAuthContext from "../hooks/useAuthContext";
 import useCartContext from "../hooks/useCartContext";
+import { LuHeart } from "react-icons/lu";
 
 const Navbar = () => {
     const { user, logoutUser } = useAuthContext();
@@ -36,6 +37,11 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <div>
+              <div className="dropdown dropdown-end mr-4">
+                <div className="btn btn-ghost btn-circle">
+                  <LuHeart className="w-5 h-5 sm:w-5 sm:h-5 text-gray-800 flex-shrink-0 mt-0.5"></LuHeart>
+                </div>
+              </div>
               <div className="dropdown dropdown-end mr-4">
                 <div
                   tabIndex={0}

@@ -17,6 +17,7 @@ import AddProduct from '../pages/AddProduct';
 import MainLayout from '../layouts/MainLayout';
 import ContactPage from '../pages/ContactPage';
 import Blog from '../pages/Blog';
+import WishlistPage from '../pages/Wishlist';
 
 const AppRoutes = () => {
     return (
@@ -46,6 +47,7 @@ const AppRoutes = () => {
                 <Route index element={<Dashboard />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="cart" element={<Cart />} />
+                <Route path="wishlist" element={<WishlistPage />} />
                 <Route path="orders" element={<Orders />} />
                 <Route path="payment/success/" element={<PaymentSuccess />} />
                 <Route path="products/add" element={<AddProduct />} />

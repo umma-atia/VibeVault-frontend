@@ -5,7 +5,6 @@ import useFetchProduct from "../../hooks/useFetchProducts";
 import FilterSection from "./FilterSection";
 import useFetchCategories from "../../hooks/useFetchCategories";
 
-
 const ShopPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [priceRange, setPriceRange] = useState([0, 1000]);

@@ -6,11 +6,13 @@ import { Suspense, useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import ReviewSection from "../components/Reviews/ReviewSection";
 import defaultImage from "../assets/default_product.jpg";
+import useAuthContext from "../hooks/useAuthContext";
 
 const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const { productId } = useParams();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     setLoading(true);
@@ -95,9 +97,19 @@ console.log('API theke asha product:', product);
               )}
             </div>
           </div>
-
+          <div className="mr-2 mb-6 text-sm font-medium"> Color: {product.color} </div>
+          <div className="mr-2 text-sm font-medium"> Size: {product.size} </div>
           <div className="mt-auto">
-            <AddToCartButton product={product} />
+            { user ? (<AddToCartButton product={product} />
+              ) : (
+              <Link to="/login" className="w-full">
+                <button
+                  className="btn btn-primary w-full"
+                  >
+                  Login to add to cart
+                </button>
+              </Link>
+            )}            
           </div>
         </div>
       </div>
